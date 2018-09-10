@@ -3,10 +3,12 @@ version: '3'
 services:
   frontend:
     build: .
-    command: /bin/bash -c 'npm install && create-react-app book42 npm config set proxy http://{$API_ENDPOINT}:3000 && yarn start'
+    command: /bin/bash -c 'npm install && yarn start'
     env_file: .env
     volumes:
       - .:/usr/src/app:rw
+      - /usr/src/app/app
+      - package.json
       - /usr/src/app/bower_components
       - /usr/src/app/node_modules
       - /usr/src/app/ssl

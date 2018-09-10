@@ -25,16 +25,20 @@ ENV NPM_CONFIG_LOGLEVEL info
 # Install react-cli and bower
 ENV REACT_VERSION 16.4.1
 
-RUN set -x \
-        && npm install -g bower react@${REACT_VERSION}
+#RUN set -x \
+#        && npm install -g bower \
+#        && npm install --save react@${REACT_VERSION} react-dom@${REACT_VERSION}
+
+WORKDIR /usr/src/app
+
+RUN set -x npm install graphql graphql-relay --save
+
 
 WORKDIR /usr/src/app
 
 # Install npm_modules and bower_components
 COPY package.json /usr/src/app
 
-RUN set -x \
-        && rm -rf /usr/src/app/node_modules \ 
-        && npm install
-
-EXPOSE 4200 49153
+#RUN set -x \
+#        && rm -rf /usr/src/app/node_modules \ 
+#        && npm install
