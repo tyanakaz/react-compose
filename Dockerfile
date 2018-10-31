@@ -23,22 +23,18 @@ RUN set -x \
 ENV NPM_CONFIG_LOGLEVEL info
 
 # Install react-cli and bower
-ENV REACT_VERSION 16.4.1
+ENV REACT_VERSION 16.6.0
+ENV REACT_DOM_VERSION 16.6.0
 
-#RUN set -x \
-#        && npm install -g bower \
-#        && npm install --save react@${REACT_VERSION} react-dom@${REACT_VERSION}
-
-WORKDIR /usr/src/app
-
-RUN set -x npm install graphql graphql-relay --save
-
+RUN set -x \
+            && yarm add react@${REACT_VERSION} react-dom@${REACT_DOM_VERSION} \
+            && yarm add create-react-app \
+            && yarm add gulp browserify reactify vinyl-source-stream
 
 WORKDIR /usr/src/app
 
 # Install npm_modules and bower_components
 COPY package.json /usr/src/app
 
-#RUN set -x \
-#        && rm -rf /usr/src/app/node_modules \ 
-#        && npm install
+RUN set -x \
+            && yarm install
