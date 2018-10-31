@@ -27,9 +27,11 @@ ENV REACT_VERSION 16.6.0
 ENV REACT_DOM_VERSION 16.6.0
 
 RUN set -x \
-            && yarm add react@${REACT_VERSION} react-dom@${REACT_DOM_VERSION} \
-            && yarm add create-react-app \
-            && yarm add gulp browserify reactify vinyl-source-stream
+            && npm install -g yarn \
+            && yarn add react@${REACT_VERSION} \ 
+            && yarn add react-dom@${REACT_DOM_VERSION} \
+            && yarn add create-react-app \
+            && yarn add gulp browserify reactify vinyl-source-stream
 
 WORKDIR /usr/src/app
 
@@ -37,4 +39,4 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app
 
 RUN set -x \
-            && yarm install
+            && yarn install

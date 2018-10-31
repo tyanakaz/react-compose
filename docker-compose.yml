@@ -3,12 +3,11 @@ version: '3'
 services:
   frontend:
     build: .
-    command: /bin/bash -c 'yarm start'
+    command: /bin/bash -c 'yarn install && cd app && yarn start'
     env_file: .env
     volumes:
       - .:/usr/src/app:rw
-      - /usr/src/app/app
-      - package.json
+      - /usr/src/app
       - /usr/src/app/bower_components
       - /usr/src/app/node_modules
       - /usr/src/app/ssl

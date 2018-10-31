@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rm -rf app bower_components node_modules ssl/ tmp/ vendor package.json package-lock.json 
+rm -rf app bower_components node_modules ssl/ tmp/ vendor package.json package-lock.json yarn-error.log yarn.lock
