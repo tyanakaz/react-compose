@@ -3,7 +3,7 @@ version: '3'
 services:
   frontend:
     build: .
-    command: /bin/bash -c 'yarn install && cd app && yarn start'
+    command: /bin/bash -c 'cd app && yarn start'
     env_file: .env
     volumes:
       - .:/usr/src/app:rw

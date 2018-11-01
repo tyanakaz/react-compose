@@ -22,7 +22,7 @@ RUN set -x \
 # node setup
 ENV NPM_CONFIG_LOGLEVEL info
 
-# Install react-cli and bower
+# Install react and react-dom
 ENV REACT_VERSION 16.6.0
 ENV REACT_DOM_VERSION 16.6.0
 
@@ -30,8 +30,7 @@ RUN set -x \
             && npm install -g yarn \
             && yarn add react@${REACT_VERSION} \ 
             && yarn add react-dom@${REACT_DOM_VERSION} \
-            && yarn add create-react-app \
-            && yarn add gulp browserify reactify vinyl-source-stream
+            && yarn add create-react-app
 
 WORKDIR /usr/src/app
 
