@@ -17,7 +17,7 @@ RUN set -x \
              vim less \
         # Update Locale to en_US.UTF-8
         && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
-        && locale-gen && update-locale LANG=en_US.UTF-8
+        && locale-gen && update-locale LANG=en_US.UTF-8 
 
 # node setup
 ENV NPM_CONFIG_LOGLEVEL info
@@ -30,7 +30,10 @@ RUN set -x \
             && npm install -g yarn \
             && yarn add react@${REACT_VERSION} \ 
             && yarn add react-dom@${REACT_DOM_VERSION} \
-            && yarn add create-react-app
+            # && yarn add create-react-app \
+            && yarn add prop-types \
+            && yarn add redux redux-actions redux-logger redux-promise react-redux \
+            && yarn add redux-devtools
 
 WORKDIR /usr/src/app
 
