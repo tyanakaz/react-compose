@@ -1,0 +1,12 @@
+{
+  "name": "react-compose",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/tyanakaz/react-compose.git",
+  "author": "tyanakaz <xe314m@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  }
+}
