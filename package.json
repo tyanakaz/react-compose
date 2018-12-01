@@ -6,7 +6,7 @@
   "author": "tyanakaz <xe314m@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server"
+    "build": "./node_modules/.bin/webpack",
+    "start": "./node_modules/.bin/webpack-dev-server"
   }
 }
