@@ -3,7 +3,7 @@ version: '3'
 services:
   frontend:
     build: .
-    command: /bin/bash -c 'cd app && yarn start'
+    command: /bin/bash -c 'yarn run start'
     env_file: .env
     volumes:
       - .:/usr/src/app:rw
@@ -15,7 +15,7 @@ services:
       - /usr/src/app/vendor/bundle
       - ./vendor:/usr/src/app/vendor
     ports:
-      - "4200:3000"
+      - "3000:3000"
     environment:
       LANG: en_US.UTF-8
       LANGUAGE: en_US:en

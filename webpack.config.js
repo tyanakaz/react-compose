@@ -1,37 +1,34 @@
-var path = require('path');
+const path = require ('path');
 
+console.log(process.env.NODE_ENV)
+
+const publicDir = path.join (__dirname, '/public');
 module.exports = {
-  devtool: "source-map",
-  context: __dirname + "/src",
-  entry: './index.js',
+  mode: process.env.NODE_ENV || 'development',
+  entry: ['./src/index.js'],
   output: {
+    path: publicDir,
+    publicPath: '/',
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build')
-  },
-  devServer: {
-    contentBase: 'build',
-    port: 3000
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ["babel-loader"],
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015'],
+        },
       },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: ["eslint-loader"],
-      },
-      {
-        test: /\.html$/,
-        loader: "file?name=[name].[ext]",
-      },
-      {
-        test: /\.css$/,
-        loaders: ['style-loader', 'css-loader?modules'],
-      }
     ],
   },
-}
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  devServer: {
+    port: 3000,
+    historyApiFallback: true,
+    contentBase: publicDir,
+    disableHostCheck: true
+  },
+};

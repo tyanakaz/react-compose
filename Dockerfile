@@ -40,12 +40,12 @@ RUN set -x \
 
 # Install webpack
 RUN set -x \
-            && yarn add webpack \
+            && yarn add webpack webpack-cli \
             && yarn add --dev webpack-dev-server 
 
 # Install babel
 RUN set -x \
-            && yarn add --dev babel-core babel-loader babel-preset-react babel-preset-env
+            && yarn add --dev babel-core babel-loader@7 babel-preset-react babel-preset-env babel-preset-es2015
             
 
 # Install ajax related 
