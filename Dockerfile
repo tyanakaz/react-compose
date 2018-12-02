@@ -17,7 +17,7 @@ RUN set -x \
              vim less \
         # Update Locale to en_US.UTF-8
         && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
-        && locale-gen && update-locale LANG=en_US.UTF-8 
+        && locale-gen && update-locale LANG=en_US.UTF-8
 
 # node setup
 ENV NPM_CONFIG_LOGLEVEL info
@@ -29,41 +29,8 @@ ENV REACT_DOM_VERSION 16.6.0
 RUN set -x \
             && npm install -g yarn \
             && yarn add react@${REACT_VERSION} \ 
-            && yarn add react-dom@${REACT_DOM_VERSION} 
-            # && yarn add create-react-app \
-
-# Install redux
-RUN set -x \
-            && yarn add prop-types \
-            && yarn add redux redux-actions redux-logger redux-promise react-redux \
-            && yarn add --dev redux-devtools 
-
-# Install webpack
-RUN set -x \
-            && yarn add webpack webpack-cli \
-            && yarn add --dev webpack-dev-server 
-
-# Install babel
-RUN set -x \
-            && yarn add --dev babel-core babel-loader@7 babel-preset-react babel-preset-env babel-preset-es2015
-            
-
-# Install ajax related 
-RUN set -x \
-            && yarn add isomorphic-fetch
-
-# Install material-ui
-RUN set -x \
-            && yarn add material-ui react-tap-event-plugin
-
-# Install loader
-RUN set -x \
-            && yarn add --dev css-loader style-loader source-map-loader
-
-# Install eslint
-RUN set -x \
-            && yarn add --dev eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react
-
+            && yarn add react-dom@${REACT_DOM_VERSION} \
+            && yarn add create-react-app
 
 WORKDIR /usr/src/app
 
